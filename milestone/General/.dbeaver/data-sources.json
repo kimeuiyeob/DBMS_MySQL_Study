@@ -1,0 +1,57 @@
+{
+	"folders": {},
+	"connections": {
+		"dbeaver-sample-database-sqlite-1": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "DBeaver Sample Database (SQLite)",
+			"save-password": true,
+			"show-system-objects": true,
+			"read-only": false,
+			"configuration": {
+				"database": "C:\\Users\\inyeo\\Desktop\\dbms\\mysql\\workspace\\milestone\\.metadata\\sample-database-sqlite-1\\Chinook.db",
+				"url": "jdbc:sqlite:C:\\Users\\inyeo\\Desktop\\dbms\\mysql\\workspace\\milestone\\.metadata\\sample-database-sqlite-1\\Chinook.db",
+				"configurationType": "MANUAL",
+				"type": "dev"
+			}
+		},
+		"mysql8-1840ab2360a-6bf53df0688004bd": {
+			"provider": "mysql",
+			"driver": "mysql8",
+			"name": "localhost",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"host": "localhost",
+				"port": "3306",
+				"url": "jdbc:mysql://localhost:3306/",
+				"configurationType": "MANUAL",
+				"home": "C:\\Program Files\\MySQL\\MySQL Server 8.0",
+				"type": "dev",
+				"auth-model": "native"
+			}
+		}
+	},
+	"virtual-models": {
+		"mysql8-1840ab2360a-6bf53df0688004bd": {
+			"milestone": {
+				"@properties": {
+					"erd.diagram.state": {
+						"serialized": "<diagram version=\"1\" name=\"empty\" time=\"202210251014\"><entities><data-source id=\"mysql8-1840ab2360a-6bf53df0688004bd\"><entity id=\"1\" name=\"tbl_banners\" fq-name=\"milestone.tbl_banners\" order=\"0\" x=\"564\" y=\"708\"><path name=\"milestone\"/></entity><entity id=\"2\" name=\"tbl_banners_file\" fq-name=\"milestone.tbl_banners_file\" order=\"1\" x=\"149\" y=\"730\"><path name=\"milestone\"/></entity><entity id=\"3\" name=\"tbl_comments\" fq-name=\"milestone.tbl_comments\" order=\"2\" x=\"117\" y=\"287\"><path name=\"milestone\"/></entity><entity id=\"4\" name=\"tbl_donation\" fq-name=\"milestone.tbl_donation\" order=\"3\" x=\"542\" y=\"244\"><path name=\"milestone\"/></entity><entity id=\"5\" name=\"tbl_individual_community_file\" fq-name=\"milestone.tbl_individual_community_file\" order=\"4\" x=\"109\" y=\"88\"><path name=\"milestone\"/></entity><entity id=\"6\" name=\"tbl_individual_member\" fq-name=\"milestone.tbl_individual_member\" order=\"5\" x=\"957\" y=\"51\"><path name=\"milestone\"/></entity><entity id=\"7\" name=\"tbl_individual_member_community\" fq-name=\"milestone.tbl_individual_member_community\" order=\"6\" x=\"531\" y=\"13\"><path name=\"milestone\"/></entity><entity id=\"8\" name=\"tbl_news\" fq-name=\"milestone.tbl_news\" order=\"7\" x=\"377\" y=\"814\"><path name=\"milestone\"/></entity><entity id=\"9\" name=\"tbl_notice\" fq-name=\"milestone.tbl_notice\" order=\"8\" x=\"1168\" y=\"772\"><path name=\"milestone\"/></entity><entity id=\"10\" name=\"tbl_notice_file\" fq-name=\"milestone.tbl_notice_file\" order=\"9\" x=\"945\" y=\"831\"><path name=\"milestone\"/></entity><entity id=\"11\" name=\"tbl_nursery_school_community_file\" fq-name=\"milestone.tbl_nursery_school_community_file\" order=\"10\" x=\"93\" y=\"547\"><path name=\"milestone\"/></entity><entity id=\"12\" name=\"tbl_nursery_school_member\" fq-name=\"milestone.tbl_nursery_school_member\" order=\"11\" x=\"949\" y=\"407\"><path name=\"milestone\"/></entity><entity id=\"13\" name=\"tbl_nursery_school_member_community\" fq-name=\"milestone.tbl_nursery_school_member_community\" order=\"12\" x=\"523\" y=\"513\"><path name=\"milestone\"/></entity></data-source></entities><relations><relation name=\"FK_tbl_file_banners_number_tbl_banners_banners_number\" fq-name=\"milestone.tbl_banners_file.FK_tbl_file_banners_number_tbl_banners_banners_number\" type=\"fk\" pk-ref=\"1\" fk-ref=\"2\"/><relation name=\"FK_tbl_comments_individual_member_number_tbl_individual_member_i\" fq-name=\"milestone.tbl_comments.FK_tbl_comments_individual_member_number_tbl_individual_member_i\" type=\"fk\" pk-ref=\"6\" fk-ref=\"3\"/><relation name=\"FK_tbl_donation_individual_member_number_tbl_individual_member_i\" fq-name=\"milestone.tbl_donation.FK_tbl_donation_individual_member_number_tbl_individual_member_i\" type=\"fk\" pk-ref=\"6\" fk-ref=\"4\"/><relation name=\"FK_tbl_individual_member_community_individual_number_tbl_individ\" fq-name=\"milestone.tbl_individual_member_community.FK_tbl_individual_member_community_individual_number_tbl_individ\" type=\"fk\" pk-ref=\"6\" fk-ref=\"7\"/><relation name=\"FK_tbl_comments_individual_community_number_tbl_individual_membe\" fq-name=\"milestone.tbl_comments.FK_tbl_comments_individual_community_number_tbl_individual_membe\" type=\"fk\" pk-ref=\"7\" fk-ref=\"3\"/><relation name=\"FK_tbl_file_individual_community_number_tbl_individual_membe\" fq-name=\"milestone.tbl_individual_community_file.FK_tbl_file_individual_community_number_tbl_individual_membe\" type=\"fk\" pk-ref=\"7\" fk-ref=\"5\"/><relation name=\"FK_tbl_file_individual_community_number_tbl_individual_file\" fq-name=\"milestone.tbl_individual_community_file.FK_tbl_file_individual_community_number_tbl_individual_file\" type=\"fk\" pk-ref=\"7\" fk-ref=\"5\"/><relation name=\"FK_tbl_banners_notice_number_tbl_notice_notice_number\" fq-name=\"milestone.tbl_banners.FK_tbl_banners_notice_number_tbl_notice_notice_number\" type=\"fk\" pk-ref=\"9\" fk-ref=\"1\"/><relation name=\"FK_tbl_file_notice_number_tbl_notice_notice_number\" fq-name=\"milestone.tbl_notice_file.FK_tbl_file_notice_number_tbl_notice_notice_number\" type=\"fk\" pk-ref=\"9\" fk-ref=\"10\"/><relation name=\"FK_tbl_comments_nursery_school_member_number_tbl_nursery_school_\" fq-name=\"milestone.tbl_comments.FK_tbl_comments_nursery_school_member_number_tbl_nursery_school_\" type=\"fk\" pk-ref=\"12\" fk-ref=\"3\"/><relation name=\"FK_tbl_donation_nursery_school_member_number_tbl_nursery_school_\" fq-name=\"milestone.tbl_donation.FK_tbl_donation_nursery_school_member_number_tbl_nursery_school_\" type=\"fk\" pk-ref=\"12\" fk-ref=\"4\"/><relation name=\"FK_tbl_nursery_school_member_community_nursery_school_member_num\" fq-name=\"milestone.tbl_nursery_school_member_community.FK_tbl_nursery_school_member_community_nursery_school_member_num\" type=\"fk\" pk-ref=\"12\" fk-ref=\"13\"/><relation name=\"FK_tbl_comments_nursery_school_community_number_tbl_nursery_scho\" fq-name=\"milestone.tbl_comments.FK_tbl_comments_nursery_school_community_number_tbl_nursery_scho\" type=\"fk\" pk-ref=\"13\" fk-ref=\"3\"/><relation name=\"FK_tbl_file_nursery_school_community_number_tbl_nursery_scho\" fq-name=\"milestone.tbl_nursery_school_community_file.FK_tbl_file_nursery_school_community_number_tbl_nursery_scho\" type=\"fk\" pk-ref=\"13\" fk-ref=\"11\"/><relation name=\"FK_tbl_file_nursery_school_community_number_tbl_nursery\" fq-name=\"milestone.tbl_nursery_school_community_file.FK_tbl_file_nursery_school_community_number_tbl_nursery\" type=\"fk\" pk-ref=\"13\" fk-ref=\"11\"/></relations></diagram>"
+					}
+				}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}

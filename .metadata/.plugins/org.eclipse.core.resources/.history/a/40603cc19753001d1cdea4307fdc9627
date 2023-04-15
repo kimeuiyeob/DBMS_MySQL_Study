@@ -1,0 +1,13 @@
+CREATE TABLE `tbl_nursery_school_member_community` (
+  `nursery_school_community_number` int NOT NULL AUTO_INCREMENT COMMENT '보육원 게시판 글 번호',
+  `nursery_school_community_title` varchar(100) NOT NULL COMMENT '보육원 게시판 글 제목',
+  `nursery_school_community_content` varchar(1000) NOT NULL COMMENT '보육원 게시판 글 내용',
+  `nursery_school_community_hits` int DEFAULT 0 COMMENT '보육원 게시판 조회수',
+  `nursery_school_community_like` int DEFAULT 0 COMMENT '보육원 게시판 좋아요',
+  `nursery_school_community_image` varchar(1000) DEFAULT NULL COMMENT '보육원 게시판 이미지',
+  `nursery_school_community_date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '보육원 게시판 작성일',
+  `nursery_school_member_number` int NOT NULL COMMENT '보육원 회원 번호',
+  PRIMARY KEY (`nursery_school_community_number`),
+  KEY `FK_tbl_nursery_school_member_community_nursery_school_member_num` (`nursery_school_member_number`),
+  CONSTRAINT `FK_tbl_nursery_school_member_community_nursery_school_member_num` FOREIGN KEY (`nursery_school_member_number`) REFERENCES `tbl_nursery_school_member` (`nursery_school_member_number`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='보육원 게시판';

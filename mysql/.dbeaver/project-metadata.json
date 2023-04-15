@@ -1,0 +1,1 @@
+{"resources":{"Scripts/mysql.sql":{"default-datasource":"mysql8-182e7e638b5-5965f7bc6fa6f7d0","default-catalog":"customer"},"Scripts/project.sql":{"default-datasource":"mysql8-182e7e638b5-5965f7bc6fa6f7d0","default-catalog":"project"}}}

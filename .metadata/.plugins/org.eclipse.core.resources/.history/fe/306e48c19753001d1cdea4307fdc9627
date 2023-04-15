@@ -1,0 +1,8 @@
+CREATE TABLE `tbl_notice` (
+  `notice_number` int NOT NULL AUTO_INCREMENT COMMENT '공지 번호',
+  `notice_classification` varchar(50) DEFAULT NULL COMMENT '공지 분류',
+  `notice_title` varchar(100) NOT NULL COMMENT '공지 제목',
+  `notice_date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '공지 작성일',
+  `notice_content` varchar(1000) NOT NULL COMMENT '공지 내용',
+  PRIMARY KEY (`notice_number`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='공지사항';

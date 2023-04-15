@@ -1,0 +1,14 @@
+-- milestone.tbl_banners definition
+
+CREATE TABLE `tbl_banners` (
+  `banners_number` int NOT NULL AUTO_INCREMENT COMMENT '배너 번호',
+  `banners_registration_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '배너 등록일',
+  `banners_image` varchar(1000) DEFAULT NULL COMMENT '배너 이미지',
+  `banners_url` varchar(1000) DEFAULT NULL COMMENT '배너 URL',
+  `notice_number` int DEFAULT NULL COMMENT '공지 번호',
+  `banners_title` varchar(1000) DEFAULT NULL,
+  `banners_content` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`banners_number`),
+  KEY `FK_tbl_banners_notice_number_tbl_notice_notice_number` (`notice_number`),
+  CONSTRAINT `FK_tbl_banners_notice_number_tbl_notice_notice_number` FOREIGN KEY (`notice_number`) REFERENCES `tbl_notice` (`notice_number`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='배너';

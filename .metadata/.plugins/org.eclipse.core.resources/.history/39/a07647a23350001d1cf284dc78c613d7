@@ -1,0 +1,443 @@
+create database milestone;
+
+use milestone;
+
+
+CREATE TABLE `tbl_individual_member` (
+  `individual_member_number` int NOT NULL AUTO_INCREMENT COMMENT '개인 회원 번호',
+  `individual_member_name` varchar(50) NOT NULL COMMENT '개인 회원 이름',
+  `nickname` varchar(50) NOT NULL COMMENT '닉네임',
+  `individual_member_phone_number` varchar(100) NOT NULL COMMENT '개인 회원 전화번호',
+  `individual_member_id` varchar(50) NOT NULL COMMENT '개인 회원 아이디',
+  `individual_member_password` varchar(50) NOT NULL COMMENT '개인 회원 비밀번호',
+  `individual_member_email` varchar(100) NOT NULL COMMENT '개인 회원 이메일',
+  `individual_member_address` varchar(100) NOT NULL COMMENT '개인 회원 주소',
+  `individual_member_detailed_address` varchar(100) NOT NULL COMMENT '개인 회원 상세 주소',
+  `individual_member_profile_image` varchar(1000) DEFAULT NULL COMMENT '개인 회원 프로필 이미지',
+  `number_of_donations` int DEFAULT NULL COMMENT '기부 횟수',
+  `individual_member_join_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '개인 회원 가입일',
+  `individual_member_recent_logins` datetime DEFAULT NULL COMMENT '개인 회원 최근 로그인',
+  `zip_code` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`individual_member_number`),
+  UNIQUE KEY `UQ_tbl_individual_member_1` (`nickname`,`individual_member_phone_number`,`individual_member_id`,`individual_member_email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='개인회원';
+
+
+/*===================================개인회원========================================================*/	
+
+insert into tbl_individual_member (individual_member_name, nickname, individual_member_phone_number,
+   individual_member_id, individual_member_password, individual_member_email, individual_member_address,
+   individual_member_detailed_address, individual_member_profile_image, number_of_donations, 
+   individual_member_join_date, individual_member_recent_logins, zip_code)
+values('이정재','할렐루야','01041234212','leejeongje','jeongje1212','jeongje@gmail.com','서울','강남',null,0,
+CURRENT_TIMESTAMP,null,'112111');
+
+select * from tbl_individual_member;
+
+/*==================================================================================================*/
+
+
+
+
+
+
+CREATE TABLE `tbl_nursery_school_member` (
+  `nursery_school_member_number` int NOT NULL AUTO_INCREMENT COMMENT '보육원 회원 번호',
+  `nursery_school_member_name` varchar(50) NOT NULL COMMENT '보육원 이름',
+  `nursery_school_member_phone_number` varchar(100) NOT NULL COMMENT '보육원 전화번호',
+  `nursery_school_member_id` varchar(50) NOT NULL COMMENT '보육원 회원 아이디',
+  `nursery_school_member_email` varchar(100) NOT NULL COMMENT '보육원 회원 이메일',
+  `nursery_school_member_password` varchar(50) NOT NULL COMMENT '보육원 회원 비밀번호',
+  `nursery_school_address` varchar(100) NOT NULL COMMENT '보육원 주소',
+  `nursery_school_detailed_address` varchar(100) NOT NULL COMMENT '보육원 상세주소',
+  `nursery_school_member_profile_image` varchar(1000) DEFAULT NULL COMMENT '보육원 회원 프로필 이미지',
+  `number_of_donations_received` int DEFAULT NULL COMMENT '기부 받은 횟수',
+  `nursery_school_member_recent_logins` datetime DEFAULT NULL COMMENT '보육원 회원 최근 로그인',
+  `nursery_school_detailed_page` varchar(1000) DEFAULT NULL COMMENT '보육원 상세 페이지 URL',
+  `nursery_school_member_join_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '보육원 회원 가입일',
+  `nursery_school_introductory_article` varchar(100) DEFAULT NULL COMMENT '보육원 소개글',
+  `nursery_school_photo` varchar(1000) DEFAULT NULL COMMENT '보육원 사진',
+  `zip_code` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`nursery_school_member_number`),
+  UNIQUE KEY `UQ_tbl_nursery_school_member_1` (`nursery_school_member_id`,`nursery_school_member_phone_number`,`nursery_school_member_email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='보육원회원';
+
+/*===================================보육원회원==========================================================*/
+
+insert into tbl_nursery_school_member (nursery_school_member_name,nursery_school_member_phone_number,
+   nursery_school_member_id,nursery_school_member_email,nursery_school_member_password,nursery_school_address,
+   nursery_school_detailed_address,nursery_school_member_profile_image,number_of_donations_received,
+   nursery_school_member_recent_logins,nursery_school_detailed_page,nursery_school_member_join_date,
+   nursery_school_introductory_article,nursery_school_photo,zip_code)
+values('강남보육원','02-312-4123','gangnams','gangnams@gmail.com','asdawd1212','경기도','하남시',
+null,0,null,null,CURRENT_TIMESTAMP,'사랑스러운 강남보육원입니다','http://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201105/17/htm_20110517153049l000l800-001.JPG',null);
+
+insert into tbl_nursery_school_member (nursery_school_member_name,nursery_school_member_phone_number,
+   nursery_school_member_id,nursery_school_member_email,nursery_school_member_password,nursery_school_address,
+   nursery_school_detailed_address,nursery_school_member_profile_image,number_of_donations_received,
+   nursery_school_member_recent_logins,nursery_school_detailed_page,nursery_school_member_join_date,
+   nursery_school_introductory_article,nursery_school_photo,zip_code)
+values('마음보육원','032-4123-1234','heartheart','heartss@gmail.com','asda123asd','경기도','성남시',
+null,0,null,null,CURRENT_TIMESTAMP,'마음보육원은 행복이 가득합니다.','https://news.imaeil.com/photos/2022/04/26/2022042611070602270_l.jpeg',null);
+
+insert into tbl_nursery_school_member (nursery_school_member_name,nursery_school_member_phone_number,
+   nursery_school_member_id,nursery_school_member_email,nursery_school_member_password,nursery_school_address,
+   nursery_school_detailed_address,nursery_school_member_profile_image,number_of_donations_received,
+   nursery_school_member_recent_logins,nursery_school_detailed_page,nursery_school_member_join_date,
+   nursery_school_introductory_article,nursery_school_photo,zip_code)
+values('사랑보육원','02-1233-1412','loveschool','heartss@gmail.com','sasd123sda','서울','잠실',
+null,0,null,null,CURRENT_TIMESTAMP,'사랑보육원은 사랑사랑사랑','https://news.imaeil.com/photos/2022/04/26/2022042611160279217_l.jpg',null);
+
+insert into tbl_nursery_school_member (nursery_school_member_name,nursery_school_member_phone_number,
+   nursery_school_member_id,nursery_school_member_email,nursery_school_member_password,nursery_school_address,
+   nursery_school_detailed_address,nursery_school_member_profile_image,number_of_donations_received,
+   nursery_school_member_recent_logins,nursery_school_detailed_page,nursery_school_member_join_date,
+   nursery_school_introductory_article,nursery_school_photo,zip_code)
+values('요비보육원','02-2655-0222','yobyyoby','yoby@gmail.com','wmfwmf123a','서울','강남',
+null,0,null,null,CURRENT_TIMESTAMP,'요비보육원 킹왕짱','https://t1.daumcdn.net/cfile/blog/160F390F4C282BEE24',null);
+
+insert into tbl_nursery_school_member (nursery_school_member_name,nursery_school_member_phone_number,
+   nursery_school_member_id,nursery_school_member_email,nursery_school_member_password,nursery_school_address,
+   nursery_school_detailed_address,nursery_school_member_profile_image,number_of_donations_received,
+   nursery_school_member_recent_logins,nursery_school_detailed_page,nursery_school_member_join_date,
+   nursery_school_introductory_article,nursery_school_photo,zip_code)
+values('서림스보육원','032-2122-4123','seroimsd','soerosd@gmail.com','dawdawd212','서울','강남',
+null,0,null,null,CURRENT_TIMESTAMP,'서림스보육원 환영환영','https://www.poyu.kg.kr/Ivyimages/site/open_content/sub/outdoor_img_12.jpg',null);
+
+insert into tbl_nursery_school_member (nursery_school_member_name,nursery_school_member_phone_number,
+   nursery_school_member_id,nursery_school_member_email,nursery_school_member_password,nursery_school_address,
+   nursery_school_detailed_address,nursery_school_member_profile_image,number_of_donations_received,
+   nursery_school_member_recent_logins,nursery_school_detailed_page,nursery_school_member_join_date,
+   nursery_school_introductory_article,nursery_school_photo,zip_code)
+values('해준이보육원','032-4123-1231','hejuns','hejuns@gmail.com','asd121ss','서울','목동',
+null,0,null,null,CURRENT_TIMESTAMP,'해준이 보육원 다들 컴온','https://happyedu.moe.go.kr/utl/web/imageSrc.do?path=ppqSd8wslZTKMl2XV8k6Aw%3D%3D&physical=iHsly0rPTqiv1kvARiHto1X8sWMSZWq0frDOmJ9LY0s%3D&contentType=KOBjiDG4eGP5b7WFjjTWMA%3D%3D',null);
+
+insert into tbl_nursery_school_member (nursery_school_member_name,nursery_school_member_phone_number,
+   nursery_school_member_id,nursery_school_member_email,nursery_school_member_password,nursery_school_address,
+   nursery_school_detailed_address,nursery_school_member_profile_image,number_of_donations_received,
+   nursery_school_member_recent_logins,nursery_school_detailed_page,nursery_school_member_join_date,
+   nursery_school_introductory_article,nursery_school_photo,zip_code)
+values('지수지수보육원','032-3122-131','hasd22','hsdas2@gmail.com','afasdasd','서울','목동',
+null,0,null,null,CURRENT_TIMESTAMP,'지수 보육원 환영합니다','http://www.jjn.co.kr/news/photo/202205/910524_200124_2227.jpg',null);
+
+insert into tbl_nursery_school_member (nursery_school_member_name,nursery_school_member_phone_number,
+   nursery_school_member_id,nursery_school_member_email,nursery_school_member_password,nursery_school_address,
+   nursery_school_detailed_address,nursery_school_member_profile_image,number_of_donations_received,
+   nursery_school_member_recent_logins,nursery_school_detailed_page,nursery_school_member_join_date,
+   nursery_school_introductory_article,nursery_school_photo,zip_code)
+values('호성보육원','012-4123-4123','hafas22as','asfsssd@gmail.com','asddsdsdsds','경기도','화성',
+null,0,null,null,CURRENT_TIMESTAMP,'호성보육원에 오신걸 환영합니다','https://uyjoqvxyzgvv9714092.cdn.ntruss.com/data2/content/image/2022/01/02/.cache/512/20220102326907.jpg',null);
+
+select * from tbl_nursery_school_member;
+
+/*=====================================================================================================*/
+
+
+
+
+
+
+CREATE TABLE `tbl_individual_member_community` (
+  `individual_community_number` int NOT NULL AUTO_INCREMENT COMMENT '개인 게시판 글 번호',
+  `individual_community_title` varchar(100) NOT NULL COMMENT '개인 게시판 글 제목',
+  `individual_community_content` varchar(1000) NOT NULL COMMENT '개인 게시판 글 내용',
+  `individual_community_hits` int DEFAULT NULL COMMENT '개인 게시판 조회수',
+  `individual_community_like` int DEFAULT NULL COMMENT '개인 게시판 좋아요',
+  `individual_community_image` varchar(1000) DEFAULT NULL COMMENT '개인 게시판 이미지',
+  `individual_community_date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '개인 게시판 작성일',
+  `individual_number` int NOT NULL COMMENT '개인 회원 번호',
+  PRIMARY KEY (`individual_community_number`),
+  KEY `FK_tbl_individual_member_community_individual_number_tbl_individ` (`individual_number`),
+  CONSTRAINT `FK_tbl_individual_member_community_individual_number_tbl_individ` FOREIGN KEY (`individual_number`) REFERENCES `tbl_individual_member` (`individual_member_number`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='개인 게시판';
+
+
+/*========================================개인회원 게시판=====================================================*/
+
+insert into tbl_individual_member_community (individual_community_title,individual_community_content,
+   individual_community_hits,individual_community_like,individual_community_image,
+   individual_community_date_created,individual_number)
+values('제목','내용',0,0,null,CURRENT_TIMESTAMP,1);
+
+select * from tbl_individual_member_community;
+
+/*=========================================================================================================*/
+
+
+
+
+
+
+
+CREATE TABLE `tbl_nursery_school_member_community` (
+  `nursery_school_community_number` int NOT NULL AUTO_INCREMENT COMMENT '보육원 게시판 글 번호',
+  `nursery_school_community_title` varchar(100) NOT NULL COMMENT '보육원 게시판 글 제목',
+  `nursery_school_community_content` varchar(1000) NOT NULL COMMENT '보육원 게시판 글 내용',
+  `nursery_school_community_hits` int DEFAULT NULL COMMENT '보육원 게시판 조회수',
+  `nursery_school_community_like` int DEFAULT NULL COMMENT '보육원 게시판 좋아요',
+  `nursery_school_community_image` varchar(1000) DEFAULT NULL COMMENT '보육원 게시판 이미지',
+  `nursery_school_community_date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '보육원 게시판 작성일',
+  `nursery_school_member_number` int NOT NULL COMMENT '보육원 회원 번호',
+  PRIMARY KEY (`nursery_school_community_number`),
+  KEY `FK_tbl_nursery_school_member_community_nursery_school_member_num` (`nursery_school_member_number`),
+  CONSTRAINT `FK_tbl_nursery_school_member_community_nursery_school_member_num` FOREIGN KEY (`nursery_school_member_number`) REFERENCES `tbl_nursery_school_member` (`nursery_school_member_number`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='보육원 게시판';
+
+
+/*========================================보육원회원 게시판=====================================================*/
+
+insert into milestone.tbl_nursery_school_member_community (nursery_school_community_title,
+   nursery_school_community_content,nursery_school_community_hits,nursery_school_community_like,
+   nursery_school_community_image,nursery_school_community_date_created,nursery_school_member_number)
+values('제목','내용',0,0,null,CURRENT_TIMESTAMP,1);
+
+select * from tbl_nursery_school_member_community ;
+
+
+/*===========================================================================================================*/
+
+
+
+
+
+
+
+CREATE TABLE `tbl_comments` (
+  `comments_number` int NOT NULL AUTO_INCREMENT COMMENT '댓글 번호',
+  `comments_content` varchar(500) NOT NULL COMMENT '댓글 내용',
+  `individual_member_number` int DEFAULT NULL COMMENT '개인 회원 번호',
+  `nursery_school_member_number` int DEFAULT NULL COMMENT '보육원 회원 번호',
+  `individual_community_number` int DEFAULT NULL COMMENT '개인 게시판 글 번호',
+  `nursery_school_community_number` int DEFAULT NULL COMMENT '보육원 게시판 글 번호',
+  `comment_date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`comments_number`),
+  KEY `FK_tbl_comments_individual_member_number_tbl_individual_member_i` (`individual_member_number`),
+  KEY `FK_tbl_comments_nursery_school_member_number_tbl_nursery_school_` (`nursery_school_member_number`),
+  KEY `FK_tbl_comments_individual_community_number_tbl_individual_membe` (`individual_community_number`),
+  KEY `FK_tbl_comments_nursery_school_community_number_tbl_nursery_scho` (`nursery_school_community_number`),
+  CONSTRAINT `FK_tbl_comments_individual_community_number_tbl_individual_membe` FOREIGN KEY (`individual_community_number`) REFERENCES `tbl_individual_member_community` (`individual_community_number`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `FK_tbl_comments_individual_member_number_tbl_individual_member_i` FOREIGN KEY (`individual_member_number`) REFERENCES `tbl_individual_member` (`individual_member_number`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `FK_tbl_comments_nursery_school_community_number_tbl_nursery_scho` FOREIGN KEY (`nursery_school_community_number`) REFERENCES `tbl_nursery_school_member_community` (`nursery_school_community_number`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `FK_tbl_comments_nursery_school_member_number_tbl_nursery_school_` FOREIGN KEY (`nursery_school_member_number`) REFERENCES `tbl_nursery_school_member` (`nursery_school_member_number`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='댓글';
+
+/*========================================================================================================*/
+
+
+
+
+
+CREATE TABLE `tbl_donation` (
+  `donation_number` int NOT NULL AUTO_INCREMENT COMMENT '기부 번호',
+  `donation_date` datetime DEFAULT NULL COMMENT '기부 날짜',
+  `donation_application_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '기부 신청일',
+  `donation_amount` int DEFAULT NULL COMMENT '기부금',
+  `donation_products` varchar(50) DEFAULT NULL COMMENT '기부 물품',
+  `donation_detail_products` varchar(100) DEFAULT NULL COMMENT '기부 물품 상세',
+  `icon` varchar(1000) DEFAULT NULL COMMENT '아이콘',
+  `quantity` int DEFAULT NULL COMMENT '수량',
+  `box_quantity` int DEFAULT NULL COMMENT '박스 수량',
+  `individual_member_number` int DEFAULT NULL COMMENT '개인 회원 번호',
+  `nursery_school_member_number` int DEFAULT NULL COMMENT '보육원 회원 번호',
+  PRIMARY KEY (`donation_number`),
+  KEY `FK_tbl_donation_individual_member_number_tbl_individual_member_i` (`individual_member_number`),
+  KEY `FK_tbl_donation_nursery_school_member_number_tbl_nursery_school_` (`nursery_school_member_number`),
+  CONSTRAINT `FK_tbl_donation_individual_member_number_tbl_individual_member_i` FOREIGN KEY (`individual_member_number`) REFERENCES `tbl_individual_member` (`individual_member_number`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `FK_tbl_donation_nursery_school_member_number_tbl_nursery_school_` FOREIGN KEY (`nursery_school_member_number`) REFERENCES `tbl_nursery_school_member` (`nursery_school_member_number`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='기부';
+
+/*=================================기부=====================================================*/
+
+insert into tbl_donation(donation_date,donation_application_date,donation_amount,
+   donation_products,donation_detail_products,icon,quantity,box_quantity,
+   individual_member_number,nursery_school_member_number)
+values('2022-05-12 09:00',CURRENT_TIMESTAMP,500000,'물품','의자',null,null,null,9,10);
+
+select * from tbl_donation;
+
+/*==========================================================================================*/
+
+
+
+
+
+
+CREATE TABLE `tbl_news` (
+  `news_number` int NOT NULL AUTO_INCREMENT COMMENT '소식 번호',
+  `news_title` varchar(100) NOT NULL COMMENT '소식 제목',
+  `news_content` varchar(1000) NOT NULL COMMENT '소식 내용',
+  `news_image` varchar(1000) DEFAULT NULL COMMENT '소식 이미지',
+  `news_date_content` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '소식 작성일',
+  PRIMARY KEY (`news_number`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='소식';
+
+/*============================================뉴스==================================================*/
+
+insert into tbl_news(news_title,news_content,news_image,news_date_content)
+values('제목','내용','사진',CURRENT_TIMESTAMP);
+
+
+insert into tbl_news(news_title,news_content,news_image,news_date_content)
+values('뉴스레터 가입 이벤트','마일스톤이 종합미디어 아이돌 팬덤 플랫폼과 함께 재미있는 이벤트를 시작합니다.
+
+스타플레이는 팬들이 직접 자신이 좋아하는 스타를 다양한 방식으로 홍보하고,
+자신이 좋아하는 스타의 특별한 콘텐츠를 볼 수 있는 종합 미디어 아이돌 팬덤 플랫폼으로
+주식회사 글림미디어가 제공하는 서비스입니다.
+
+스타의 선한영향력을 함께 널리 알리기 위해 이벤트가 단계적으로 진행될 예정이며
+스타플레이의 회원들이 아름다운가게 뉴스레터를 구독하면 포인트를 제공하는 이벤트가 시작되었습니다.
+
+지금 스타플레이 앱에 접속해
+아름다운가게 뉴스레터 가입하고, 1,000SST도 받아가세요.
+','https://www.e-ia.co.kr/child/2019/vol5/img/contents/sub8_img1.png',CURRENT_TIMESTAMP);
+
+insert into tbl_news(news_title,news_content,news_image,news_date_content)
+values('자립준비청년 인턴십 4기 모집','나눔과 순환을 실천하는 공익법인 아름다운가게(이사장 홍명희)가 5월 16일부터 6월 3일까지 자립준비청년(보호종료아동)을 대상으로 하는 ‘아름다운 함께서기 : 청년 인턴십 4기’를 모집한다고 밝혔다.
+
+아름다운가게 청년 인턴십은 자립준비청년의 자립역량강화 및 자립기반 형성을 통한 안정적 사회 적응을 돕기 위한 프로그램으로, 아름다운가게 내 다양한 부서에서 실무를 경험하며 진로 탐색 및 취업역량 강화를 위한 교육 프로그램 등을 지원받게 된다.
+
+모집 대상은 20~29세 자립준비청년이며, 서울 본부 사무처를 비롯한 수도권 15개 매장에서 인턴 근무가 가능하다. 총 근무 기간은 4개월이며, ①직무 훈련활동(급여 제공), ②취업 역량교육, ③개인 맞춤별 교육비 지원, ④멘토 강의 및 경제 교육으로 구성됐다.
+
+서류 접수는 6월 3일까지 아름다운가게 홈페이지에서 진행한다. 서류 합격 후 면접 전형을 거쳐 인턴 채용이 확정되면 아름다운가게 조직 문화를 이해하는 OJT 기본 교육을 거치게 되며, 7월부터 10월까지 아름다운가게에서 인턴으로 근무하게 된다.
+
+아름다운가게 나눔문화국 김하나 국장은 “아름다운 함께서기 청년 인턴십을 통해 자립준비청년들에게 역량 강화 및 진로 탐색 기회를 제공하고자 한다”며 “인턴십을 통해 자신만의 목표를 세우며 성장함으로써 진정한 자립이 일어나길 기대한다”고 말했다.
+
+한편 아름다운가게는 2010년 아름다운가게 관악자명점 수익금을 자립준비청년 지원에 사용한 것을 시작으로, 11년간 총 349명의 자립준비청년에게 약 14억2700만원 상당의 자립 지원을 이어오고 있다.','https://mblogthumb-phinf.pstatic.net/MjAyMjA1MDJfMTcw/MDAxNjUxNDUyMDExMDgy.2l43J-B0T_R3DAP1x3_iyNEHu4RHsSfUplaeHqMzBiYg.XXN3QVDEQQKvyE_QzJggp1yXQRbAAdIe31sGwUM3wcAg.PNG.ud_dental/%EB%B2%A0%EC%9D%B4%EB%B9%84%EB%B3%B8%EC%A3%BD-%EC%9D%B4%EB%B2%A4%ED%8A%B8-04.png?type=w800',CURRENT_TIMESTAMP);
+
+insert into tbl_news(news_title,news_content,news_image,news_date_content)
+values('함께하는 아이디어로 ‘착한 아이디어 경진대회’','이번 경진대회는 기부 물품 중 미판매분 의류의 재활용 및 재자원화를 위한 시민들의 다양한 아이디어를 모집하고, 아름다운가게의 친환경적 가치를 널리 알리기 위해 추진됐다.
+
+아름다운가게는 2002년부터 지속 가능한 미래를 위해 물품기부 문화 조성에 앞서왔으며 20주년을 맞이하는 올해, 특허청과 시민사회와 함께 환경 문제 해결 방안을 찾는 이번 경진대회를 개최하게 됐다.
+
+이 대회는 특허청의 아이디어 플랫폼 ‘아이디어로’에서 4월 28일부터 5월 27일까지 진행된다. 사회, 환경 관련 문제해결을 위한 아이디어를 가진 국민 누구나 참가할 수 있으며, 수상자의 아이디어는 ‘나눔’의 방식으로 협약을 체결할 예정이다.
+
+특허청 정연우 산업재산정책국장은 “전 국민이 아이디어만으로도 사회에 공헌할 수 있는 길이 열렸다. 아름다운가게가 가진 재판매 의류 순환 문제를 해결할 획기적인 아이디어가 많이 제안되기를 기대한다”고 말했다.
+
+아름다운가게 담당자는 “특허청과 함께 전 국민의 친환경 아이디어를 모을 수 있는 계기가 마련됐다. 경진대회를 통해 자원순환에 대한 아이디어가 활발히 논의되길 바란다”고 말했다.','https://i.pinimg.com/736x/67/9a/19/679a19d792254a11418f639364567d63.jpg',CURRENT_TIMESTAMP);
+
+insert into tbl_news(news_title,news_content,news_image,news_date_content)
+values('20주년 기념 온라인마켓 14일 오픈','이번 온라인마켓은 오프라인으로 만나던 아름다운가게를 온라인으로 쉽고 편하게 물품을 구매하도록 하기 위해 기획됐다. 마켓 수익금은 전액 보호종료청년 자립 기금으로 사용된다.
+
+온라인마켓에 등록된 물품은 모두 시민이 기부한 물품으로 게임기, 가전, 소형 잡화, 의류 등 그동안 아름다운가게 오프라인 매장에서 꾸준히 사랑받은 품목들이다. 이들 모두 신중하게 선별해 판매될 예정이며 특히 명품 가방, 지갑 등은 아름다운가게 내 명품 감별사 자격증을 보유한 전문 감별사의 검증을 거쳐 판매된다. 자세한 내용은 아름다운가게 온라인마켓에서 확인할 수 있다.
+
+이번 온라인마켓은 물품 기부-수거-판매-수익 나눔의 모든 과정을 투명하게 공개해 내 기부가 어떻게 쓰이는지 알고 싶어하는 기부자들의 니즈를 해소하고, 참여의 가치를 높인다는 의미가 있다.
+
+아름다운가게 담당자는 “자원 재순환에서 늘 한발 앞서갔던 아름다운가게가 이번에 준비한 온라인마켓을 통해 더 많은 시민에게 새롭고 신선한 자원 재순환 경험을 제공하고자 한다”고 밝혔다.','https://www.jobaba.net/file/image.do?filePath=qjOcXNAS8yGf1OiG0Ekwo0V48xuiLgKF+xCx2w1jv2jc53mwG8Fs3IK24OxtZ9gq',CURRENT_TIMESTAMP);
+
+select * from tbl_news;
+
+/*==================================================================================================*/
+
+
+
+
+
+CREATE TABLE `tbl_notice` (
+  `notice_number` int NOT NULL AUTO_INCREMENT COMMENT '공지 번호',
+  `notice_classification` varchar(50) DEFAULT NULL COMMENT '공지 분류',
+  `notice_title` varchar(100) NOT NULL COMMENT '공지 제목',
+  `notice_date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '공지 작성일',
+  `notice_content` varchar(1000) NOT NULL COMMENT '공지 내용',
+  PRIMARY KEY (`notice_number`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='공지사항';
+
+/*===========================================공지사항==================================================*/
+
+insert into tbl_notice(notice_classification,notice_title,notice_date_created,notice_content)
+values('공지','[공지] 시스템점검으로 인한 대표번호 운영 일시 중단',CURRENT_TIMESTAMP,'안녕하세요. milestone입니다. 시스템점검으로 인해 대표번호 일시 중단되어 안내드립니다. ');
+
+insert into tbl_notice(notice_classification,notice_title,notice_date_created,notice_content)
+values('공지','[공지] 시스템점검으로 인한 페이지 오류 수정 완료',CURRENT_TIMESTAMP,'안녕하세요. milestone입니다. 페이지 이동중 오류의 부분을 해결하여 안내드립니다.');
+
+insert into tbl_notice(notice_classification,notice_title,notice_date_created,notice_content)
+values('공지','[공지] 일시적인 인터넷 느림으로 인해 버그 수정',CURRENT_TIMESTAMP,'안녕하세요. milestone입니다. 갑작스러운 인터넷 속도 저하 버그 해결완료하여 안내드립니다.');
+
+insert into tbl_notice(notice_classification,notice_title,notice_date_created,notice_content)
+values('공지','[공지] 일시적인 인터넷 느림으로 인해 버그 완료',CURRENT_TIMESTAMP,'안녕하세요. milestone입니다. 갑작스러운 인터넷 속도 저하 버그 해결완료하여 안내드립니다.');
+
+select * from tbl_notice;
+
+/*====================================================================================================*/
+
+
+
+
+
+CREATE TABLE `tbl_banners` (
+  `banners_number` int NOT NULL AUTO_INCREMENT COMMENT '배너 번호',
+  `banners_registration_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '배너 등록일',
+  `banners_image` varchar(1000) DEFAULT NULL COMMENT '배너 이미지',
+  `banners_url` varchar(1000) DEFAULT NULL COMMENT '배너 URL',
+  `notice_number` int DEFAULT NULL COMMENT '공지 번호',
+  PRIMARY KEY (`banners_number`),
+  KEY `FK_tbl_banners_notice_number_tbl_notice_notice_number` (`notice_number`),
+  CONSTRAINT `FK_tbl_banners_notice_number_tbl_notice_notice_number` FOREIGN KEY (`notice_number`) REFERENCES `tbl_notice` (`notice_number`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='배너';
+
+/*=============================================배너=================================================*/
+
+insert into tbl_banners(banners_registration_date,banners_image,banners_url,notice_number)
+values(CURRENT_TIMESTAMP,
+'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdhzjYLG6YXfZSt36VZ4R2tc8vlYYUbWCohQ&usqp=CAU',
+null,null);
+
+select * from tbl_banners ;
+
+/*==================================================================================================*/
+
+/*===============================관리자==============================================================*/
+
+CREATE TABLE `tbl_individual_community_file` (
+  `individual_community_file_system_name` varchar(500) NOT NULL COMMENT '개인 게시판 파일 시스템 이름',
+  `individual_community_file_original_name` varchar(500) NOT NULL COMMENT '개인 게시판 파일 오리지널 이름',
+  `individual_community_number` int DEFAULT NULL COMMENT '개인 게시판 글 번호',
+  PRIMARY KEY (`individual_community_file_system_name`),
+  KEY `FK_tbl_file_individual_community_number_tbl_individual_membe` (`individual_community_number`),
+  CONSTRAINT `FK_tbl_file_individual_community_number_tbl_individual_membe` FOREIGN KEY (`individual_community_number`) REFERENCES `tbl_individual_member_community` (`individual_community_number`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='개인 게시판 파일';
+
+-- milestone.tbl_nursery_school_community_file definition
+
+CREATE TABLE `tbl_nursery_school_community_file` (
+  `nursery_school_community_file_system_name` varchar(700) NOT NULL COMMENT '보육원 게시판 파일 시스템 이름',
+  `nursery_school_community_file_original_name` varchar(700) NOT NULL COMMENT '보육원 게시판 파일 오리지널 이름',
+  `nursery_school_community_number` int DEFAULT NULL COMMENT '보육원 게시판 글 번호',
+  PRIMARY KEY (`nursery_school_community_file_system_name`),
+  KEY `FK_tbl_file_nursery_school_community_number_tbl_nursery_scho` (`nursery_school_community_number`),
+  CONSTRAINT `FK_tbl_file_nursery_school_community_number_tbl_nursery_scho` FOREIGN KEY (`nursery_school_community_number`) REFERENCES `tbl_nursery_school_member_community` (`nursery_school_community_number`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- milestone.tbl_notice_file definition
+
+CREATE TABLE `tbl_notice_file` (
+  `file_system_name` varchar(700) NOT NULL COMMENT '공지사항 파일 시스템 이름',
+  `file_original_name` varchar(700) NOT NULL COMMENT '공지사항 파일 오리지널 이름',
+  `notice_number` int DEFAULT NULL COMMENT '공지 번호',
+  PRIMARY KEY (`file_system_name`),
+  KEY `FK_tbl_file_notice_number_tbl_notice_notice_number` (`notice_number`),
+  CONSTRAINT `FK_tbl_file_notice_number_tbl_notice_notice_number` FOREIGN KEY (`notice_number`) REFERENCES `tbl_notice` (`notice_number`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- milestone.tbl_banners_file definition
+
+CREATE TABLE `tbl_banners_file` (
+  `banners_file_system_name` varchar(700) NOT NULL COMMENT '배너 파일 시스템 이름',
+  `banners_file_original_name` varchar(700) NOT NULL COMMENT '배너 파일 오리지널 이름',
+  `banners_number` int DEFAULT NULL COMMENT '배너 번호',
+  PRIMARY KEY (`banners_file_system_name`),
+  KEY `FK_tbl_file_banners_number_tbl_banners_banners_number` (`banners_number`),
+  CONSTRAINT `FK_tbl_file_banners_number_tbl_banners_banners_number` FOREIGN KEY (`banners_number`) REFERENCES `tbl_banners` (`banners_number`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+/*====================================================================================================*/
+select * from tbl_nursery_school_member_community;
+
+
+
+
+	
+   	  select i.individual_member_number, i.nickname, d.donation_amount, d.donation_products,i.number_of_donations,d.donation_date
+      from tbl_individual_member i , tbl_donation d
+      where i.individual_member_number = d.donation_number
+      order by number_of_donations desc
+      limit 0,6;
